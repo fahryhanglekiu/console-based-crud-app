@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class MenuPageViewer {
     EmployeeAdder employeeAdder = new EmployeeAdder();
     EmployeeViewer employeeViewer = new EmployeeViewer();
+    EmployeeUpdater employeeUpdater = new EmployeeUpdater();
+    EmployeeRemover employeeRemover = new EmployeeRemover();
 
     private static MenuPageViewer instance;
 
@@ -32,7 +34,6 @@ public class MenuPageViewer {
 
                 // Re-prompt
                 DisplayMainPrompt();
-
             }
         }
         catch(NumberFormatException exception){
@@ -46,21 +47,23 @@ public class MenuPageViewer {
     private void ProcessInput(int input){
         switch (input){
             case 1:
-                //TODO Add employee
+                //Add an employee
                 employeeAdder.AddAnEmployee();
                 break;
             case 2:
-                //TODO View employee
+                //View the employee
                 employeeViewer.ViewEmployee();
                 break;
             case 3:
-                //TODO Update employee
+                //Update the employee name and position
+                employeeUpdater.PrintUpdateEmployeeInput();
                 break;
             case 4:
-                //TODO Remove employee
+                //Remove the employee by index
+                employeeRemover.RemoveEmployee();
                 break;
             case 5:
-                //TODO Exit
+                //Exit the CLI
                 break;
         }
     }

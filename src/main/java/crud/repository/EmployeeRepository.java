@@ -1,6 +1,7 @@
 package repository;
 import model.User;
 
+import java.awt.event.ItemEvent;
 import java.util.*;
 
 public class EmployeeRepository {
@@ -25,11 +26,17 @@ public class EmployeeRepository {
         userList.remove(user);
     }
 
+    public void removeUserByIndex(int index){userList.remove(index);}
+
     public boolean userIsExist(User user){
         return userList.contains(user);
     }
 
     public int getUserListLength(){
         return userList.size();
+    }
+
+    public User getUserByName(String employeeName){
+        return userList.stream().filter(item -> item.Name.equals(employeeName)).findFirst().get();
     }
 }

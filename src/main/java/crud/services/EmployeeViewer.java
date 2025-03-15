@@ -7,8 +7,14 @@ public class EmployeeViewer {
         System.out.println("Employees :");
 
         for (int i = 0; i < EmployeeRepository.getInstance().getUserListLength(); i++){
-            String toPrint = EmployeeRepository.getInstance().getUserList().get(i).Name + " " + EmployeeRepository.
-                    getInstance().getUserList().get(i).Position;
+            var item = EmployeeRepository.getInstance().getUserList().get(i);
+
+            var name = item.Name;
+            var position = item.Position;
+
+            var id = i + 1;
+
+            String toPrint = "Id: " + id + " Name: " + name + " Position: " + position;
 
             System.out.println(toPrint);
         }

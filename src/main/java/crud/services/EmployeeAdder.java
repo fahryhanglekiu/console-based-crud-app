@@ -1,4 +1,5 @@
 package services;
+import Helper.StringExtension;
 import model.User;
 import repository.EmployeeRepository;
 
@@ -30,9 +31,8 @@ public class EmployeeAdder {
             System.out.println("Successfully added employee: " + employeeName + " with position " + employeePosition);
 
             User newUser = new User() {{
-                Name = employeeName;
-                Position = employeePosition;
-                Id = EmployeeRepository.getInstance().getUserListLength() + 1;
+                Name = StringExtension.Trim(employeeName);
+                Position = StringExtension.Trim(employeePosition);
             }};
 
             EmployeeRepository.getInstance().addUser(newUser);
